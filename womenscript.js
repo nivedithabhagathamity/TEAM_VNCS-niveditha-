@@ -25,4 +25,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
- 
+// Category card hover effect enhancement
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Current year update for footer copyright
+    const copyrightElement = document.querySelector('.footer p');
+    if (copyrightElement) {
+        const currentYear = new Date().getFullYear();
+        copyrightElement.textContent = copyrightElement.textContent.replace('2025', currentYear);
+    }
+}); 
